@@ -1,5 +1,8 @@
 尝试Spring的各种新特性
 
+[Gitee](https://gitee.com/pkmer/springboot-playground)
+[Github](https://github.com/hpangka/springboot-playground)
+
 # Version
 
 | Library    | Version |
