@@ -7,7 +7,7 @@
 
     <packaging>pom</packaging>
 
-    <name>VideosOnline</name>
+    <name>playground</name>
     <description>🔥This is a project springboot feature usage</description>
     <url>https://pkmer.gitee.io</url>
 
@@ -17,6 +17,9 @@
             <email>1193094618@qq.com</email>
         </developer>
     </developers>
+    <modules>
+        <module>intercept-and-filter</module>
+    </modules>
 
     <properties>
         <spring.boot.version>3.2.6</spring.boot.version>
