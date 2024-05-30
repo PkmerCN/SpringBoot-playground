@@ -19,6 +19,7 @@
     </developers>
     <modules>
         <module>web-mvc-filter</module>
+        <module>exception-handle</module>
     </modules>
 
     <properties>
