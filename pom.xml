@@ -18,7 +18,7 @@
         </developer>
     </developers>
     <modules>
-        <module>intercept-and-filter</module>
+        <module>web-mvc-filter</module>
     </modules>
 
     <properties>
