@@ -20,6 +20,7 @@
     <modules>
         <module>web-mvc-filter</module>
         <module>exception-handle</module>
+        <module>global-exception-handler</module>
     </modules>
 
     <properties>
