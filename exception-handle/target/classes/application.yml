@@ -1,0 +1,3 @@
+spring:
+  thymeleaf:
+    cache: false # 开发时关闭缓存，不然看不到实时页面
