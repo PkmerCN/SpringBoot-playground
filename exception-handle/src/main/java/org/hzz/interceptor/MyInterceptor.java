@@ -19,7 +19,6 @@ public class MyInterceptor implements HandlerInterceptor {
         log.info("请求 {}",request.getRequestURI());
         if(shouldSkip(request.getRequestURI()))
             return true;
-//        throw new RuntimeException("Interceptor Exceptiion");
         return true;
     }
 

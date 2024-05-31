@@ -30,16 +30,26 @@ public class TestController {
         return modelAndView;
     }
 
+    // 抛出异常
     @RequestMapping("/exception")
     public void testException(){
         int a = 1/0;
     }
 
+    // 抛出异常
     @RequestMapping("throws-exception")
     public void throwExcep(){
         throw new RuntimeException("My Runtime Exception");
     }
 
+    /**
+     * 处理本Controller抛出的异常，如果请求Accept包含text/html,我们就直接交给BasicErrorController处理，让他返回模板的error.html
+     * （具体原理：spring会将没有处理的异常通过内部forward到/error,在BasicErrorController中会使用errorHtml方法返回一个ModelAndView）
+     * 然后我们使用Thymeleaf模板引擎来渲染数据。
+     *
+     * 其他Accept的直接统一处理为JSON数据返回。
+     * @throws Exception
+     */
     @ExceptionHandler({RuntimeException.class})
     public ResponseEntity<Map<String, Object>> handleException(HttpServletRequest request,Exception e) throws Exception {
         String accept = request.getHeader("Accept");
