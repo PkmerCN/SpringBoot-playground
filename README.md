@@ -5,10 +5,12 @@
 
 # Version
 
-| Library    | Version |
-|------------|---------|
-| SpringBoot | 3.2.6   |
-| JDK        | 17      |
-| Maven      | 3.9.0   |
+| Library        | Version |
+|----------------|---------|
+| SpringBoot     | 3.2.6   |
+| JDK            | 17      |
+| Maven          | 3.9.0   |
+| Docker Compose | 2.24.5  |
+
 
 
