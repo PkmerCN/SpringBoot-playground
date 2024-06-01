@@ -22,6 +22,7 @@
         <module>exception-handle</module>
         <module>global-exception-handler</module>
         <module>mybatis-flyway-docker</module>
+        <module>mybatis-generator</module>
     </modules>
 
     <properties>

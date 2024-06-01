@@ -11,6 +11,5 @@ import java.util.List;
  */
 @Mapper
 public interface UserXMLMapper {
-
     List<User> getAllUsers();
 }
