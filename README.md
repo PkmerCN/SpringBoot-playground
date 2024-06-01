@@ -13,5 +13,3 @@
 | Docker Compose        | 2.24.5  |
 | mybatis-spring-boot   | 3.0.3   |
 
-SpringBoot版本之所以从3.2.6,迁移到3.1.12的原因是因为mybatis目前3.0版本只支持3.1系列的版本
-![img.png](appendix/img.png)
