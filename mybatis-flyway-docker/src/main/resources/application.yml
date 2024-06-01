@@ -1,0 +1,6 @@
+spring:
+  docker:
+    compose:
+      file: ./docker-compose.yml
+      lifecycle-management: start_only
+#      file: classpath:docker-compose.yml

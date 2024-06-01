@@ -21,6 +21,7 @@
         <module>web-mvc-filter</module>
         <module>exception-handle</module>
         <module>global-exception-handler</module>
+        <module>mybatis-flyway-docker</module>
     </modules>
 
     <properties>
