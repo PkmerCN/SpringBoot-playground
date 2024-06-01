@@ -19,4 +19,7 @@ spring:
       max-lifetime: 1800000
       connection-timeout: 30000
       pool-name: SpringBootHikariCP
-
+mybatis:
+#  mapper-locations: classpath:org/hzz/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
