@@ -2,5 +2,21 @@ spring:
   docker:
     compose:
       file: ./docker-compose.yml
+      #      file: classpath:docker-compose.yml
       lifecycle-management: start_only
-#      file: classpath:docker-compose.yml
+  flyway:
+    locations: classpath:db
+    enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3308/taskdb?autoreconnect=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: Root.123456
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      pool-name: SpringBootHikariCP
+
