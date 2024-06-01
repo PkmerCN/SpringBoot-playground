@@ -1,6 +1,7 @@
 package org.hzz;
 
 import org.hzz.mapper.UserAnnotationMapper;
+import org.hzz.mapper.UserXMLMapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -19,6 +20,9 @@ public class MySQLMain implements CommandLineRunner {
     @Autowired
     private UserAnnotationMapper userAnnotationMapper;
 
+    @Autowired
+    private UserXMLMapper userXMLMapper;
+
     public static void main(String[] args) {
         SpringApplication.run(MySQLMain.class,args);
     }
@@ -26,5 +30,6 @@ public class MySQLMain implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.println(userAnnotationMapper.getUserByCellPhone("17801054490"));
+        System.out.println(userXMLMapper.getAllUsers());
     }
 }

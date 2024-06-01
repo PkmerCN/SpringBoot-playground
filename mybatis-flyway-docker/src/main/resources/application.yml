@@ -20,6 +20,6 @@ spring:
       connection-timeout: 30000
       pool-name: SpringBootHikariCP
 mybatis:
-#  mapper-locations: classpath:org/hzz/mapper/*.xml
+  mapper-locations: classpath:mapper/**/*.xml
   configuration:
     map-underscore-to-camel-case: true
