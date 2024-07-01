@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    hikari-a:
+      username: root
+      password: Root.123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3308/multi_a?autoreconnect=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+
+    hikari-b:
+          username: root
+          password: Root.123456
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          jdbc-url: jdbc:mysql://localhost:3308/multi_b?autoreconnect=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+
+

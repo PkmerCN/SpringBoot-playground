@@ -24,6 +24,7 @@
         <module>mybatis-flyway-docker</module>
         <module>mybatis-generator</module>
         <module>autowired-research</module>
+        <module>multi-datasoure-transaction-research</module>
     </modules>
 
     <properties>
