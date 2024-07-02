@@ -1,8 +1,6 @@
 package org.hzz.autowire.research.register;
 
-import org.hzz.autowire.research.Application;
 import org.hzz.autowire.research.order.OrderService;
-import org.hzz.autowire.research.services.MyTransactionTemplate;
 import org.springframework.context.ApplicationContext;
 
 /**

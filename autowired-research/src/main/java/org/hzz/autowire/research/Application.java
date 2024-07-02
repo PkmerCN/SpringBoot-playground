@@ -2,14 +2,11 @@ package org.hzz.autowire.research;
 
 import org.hzz.autowire.research.annotations.MyScanner;
 import org.hzz.autowire.research.annotations.MyTemp;
-import org.hzz.autowire.research.register.MyRegister;
 import org.hzz.autowire.research.services.MyTransactionTemplate;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Primary;
 
 import java.util.stream.Stream;

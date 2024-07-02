@@ -2,14 +2,13 @@ package org.hzz.autowire.research.register;
 
 import org.hzz.autowire.research.annotations.MyScanner;
 import org.hzz.autowire.research.order.OrderService;
-import org.springframework.beans.factory.support.*;
+import org.springframework.beans.factory.support.AbstractBeanDefinition;
+import org.springframework.beans.factory.support.BeanDefinitionBuilder;
+import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
-import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.core.type.AnnotationMetadata;
-import org.springframework.core.type.MethodMetadata;
 
 import java.util.Map;
-import java.util.Set;
 
 /**
  * @author 胖卡
