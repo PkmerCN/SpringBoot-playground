@@ -1,4 +1,4 @@
-package org.hzz.config;
+package org.hzz.multi.config;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -15,7 +15,7 @@ import javax.sql.DataSource;
  * @date 2024/7/2
  */
 @Configuration
-@MapperScan(basePackages = "org.hzz.mapper.a")
+//@MapperScan(basePackages = "org.hzz.mapper.a")
 public class MyBatisConfig1 {
     @Bean
     public SqlSessionFactoryBean sqlSessionFactoryBeanA(@Qualifier("hikariDataSourceA") DataSource dataSource){

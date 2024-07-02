@@ -1,4 +1,4 @@
-package org.hzz.test;
+package org.hzz.multi.test;
 
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
  * @version 1.0.0
  * @date 2024/7/2
  */
-@Component
+//@Component
 public interface MyInterface {
 }

@@ -1,4 +1,4 @@
-package org.hzz.services;
+package org.hzz.multi.services;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;

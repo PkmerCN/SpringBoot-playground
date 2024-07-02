@@ -11,17 +11,6 @@ import org.springframework.context.ApplicationContext;
  * @date 2024/7/2
  */
 public class UserService {
-//    public UserService(){
-//        System.out.println("构造函数运行");
-//    }
-
-    /**
-     * 这里OrderService是一个接口
-     * @param clazz
-     */
-//    public UserService(Class<OrderService> clazz){
-//        System.out.println("带参数构造函数运行 "+ clazz);
-//    }
 
     /**
      * @param applicationContext spring的自动注入
@@ -43,5 +32,12 @@ public class UserService {
      */
     public void setMyApplicatioinContext(ApplicationContext applicationContext){
         System.out.println("执行setter方法: "+applicationContext);
+    }
+
+    /**
+     * 通过给beanDefinition设置propertyValue
+     */
+    public void setPkmerMessage(String msg){
+        System.out.println("PropertyValue : "+msg);
     }
 }

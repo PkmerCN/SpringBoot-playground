@@ -1,4 +1,4 @@
-package org.hzz.services;
+package org.hzz.multi.services;
 
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.stereotype.Service;

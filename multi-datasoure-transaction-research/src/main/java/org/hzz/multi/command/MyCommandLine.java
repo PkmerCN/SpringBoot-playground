@@ -1,7 +1,7 @@
-package org.hzz.command;
+package org.hzz.multi.command;
 
-import org.hzz.mapper.a.FriendMapper;
-import org.hzz.services.UserService;
+import org.hzz.multi.mapper.a.FriendMapper;
+import org.hzz.multi.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -13,10 +13,10 @@ import java.util.Map;
  * @version 1.0.0
  * @date 2024/7/2
  */
-@Component
+//@Component
 public class MyCommandLine implements CommandLineRunner {
 
-    @Autowired
+//    @Autowired
     private FriendMapper friendMapper;
     @Override
     public void run(String... args) throws Exception {

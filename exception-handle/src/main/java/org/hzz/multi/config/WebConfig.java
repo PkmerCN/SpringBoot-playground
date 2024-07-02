@@ -1,4 +1,4 @@
-package org.hzz.config;
+package org.hzz.multi.config;
 
 import org.hzz.interceptor.MyInterceptor;
 import org.springframework.context.annotation.Configuration;
