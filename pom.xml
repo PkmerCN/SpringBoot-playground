@@ -25,6 +25,7 @@
         <module>mybatis-generator</module>
         <module>autowired-research</module>
         <module>multi-datasoure-transaction-research</module>
+        <module>scan-bean-research</module>
     </modules>
 
     <properties>

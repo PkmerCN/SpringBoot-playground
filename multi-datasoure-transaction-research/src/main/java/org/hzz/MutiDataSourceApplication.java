@@ -1,8 +1,10 @@
 package org.hzz;
 
 import com.zaxxer.hikari.HikariDataSource;
+import org.hzz.mapper.a.FriendMapper;
 import org.hzz.services.UserService;
 import org.hzz.services.UserServiceFactoryBean;
+import org.hzz.test.MyInterface;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -23,5 +25,12 @@ public class MutiDataSourceApplication {
         String[] beanNamesForType = applicationContext.getBeanNamesForType(DataSource.class);
         Stream.of(beanNamesForType)
                 .forEach(System.out::println);
+
+        String[] beanNamesForFriendMapper = applicationContext.getBeanNamesForType(FriendMapper.class);
+        Stream.of(beanNamesForFriendMapper)
+                .forEach(System.out::println);
+
+        String[] beanNamesForType1 = applicationContext.getBeanNamesForType(MyInterface.class);
+        System.out.println(beanNamesForType1.length);
     }
 }
