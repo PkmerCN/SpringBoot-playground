@@ -1,5 +1,6 @@
 package org.hzz.multi.mapper;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.hzz.multi.entity.Friend;
@@ -16,4 +17,7 @@ public interface MyFriendMapper {
 
     @Select("select * from friend;")
     List<Friend> selectFriends();
+
+    @Insert("insert into friend(`name`) values (#{name})")
+    int insert(String name);
 }

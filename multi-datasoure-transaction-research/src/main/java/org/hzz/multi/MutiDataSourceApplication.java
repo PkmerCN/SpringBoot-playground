@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -18,34 +20,38 @@ import java.util.stream.Stream;
  * @date 2024/7/1
  */
 @SpringBootApplication(scanBasePackages = "org.hzz.multi")
+@EnableAspectJAutoProxy(exposeProxy = true)
 public class MutiDataSourceApplication {
 
 
     public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(MutiDataSourceApplication.class);
-
-
-        String[] beanNamesForFriendMapper = applicationContext.getBeanNamesForType(MyFriendMapper.class);
-        System.out.println(beanNamesForFriendMapper.length);
-        Stream.of(beanNamesForFriendMapper)
-                .forEach(System.out::println);
-
-
+//
+//        String[] beanNamesForFriendMapper = applicationContext.getBeanNamesForType(MyFriendMapper.class);
+//        System.out.println(beanNamesForFriendMapper.length);
+//        Stream.of(beanNamesForFriendMapper)
+//                .forEach(System.out::println);
+//
+//        System.out.println("========================================");
+//
+//        String[] beanNamesForTemplates = applicationContext.getBeanNamesForType(TransactionTemplate.class);
+//        System.out.println(beanNamesForTemplates.length);
+//        Stream.of(beanNamesForTemplates)
+//                .forEach(System.out::println);
     }
 
-    @Autowired
-
-    public void setMyFriendMapper(@MapperA  MyFriendMapper friendMapperOne,
-                                  @MapperB  MyFriendMapper friendMapperTwo){
-        System.out.println(friendMapperOne);
-        System.out.println(friendMapperTwo);
-        System.out.println(friendMapperOne == friendMapperTwo);
-
-        List<Friend> friends1 = friendMapperOne.selectFriends();
-        List<Friend> friends2 = friendMapperTwo.selectFriends();
-
-        System.out.println(friends1);
-        System.out.println(friends2);
-
-    }
+//    @Autowired
+//    public void setMyFriendMapper(@MapperA  MyFriendMapper friendMapperOne,
+//                                  @MapperB  MyFriendMapper friendMapperTwo){
+//        System.out.println(friendMapperOne);
+//        System.out.println(friendMapperTwo);
+//        System.out.println(friendMapperOne == friendMapperTwo);
+//
+//        List<Friend> friends1 = friendMapperOne.selectFriends();
+//        List<Friend> friends2 = friendMapperTwo.selectFriends();
+//
+//        System.out.println(friends1);
+//        System.out.println(friends2);
+//
+//    }
 }
