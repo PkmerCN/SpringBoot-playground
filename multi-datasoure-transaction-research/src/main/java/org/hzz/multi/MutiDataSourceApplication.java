@@ -2,12 +2,14 @@ package org.hzz.multi;
 
 import org.hzz.multi.annotations.MapperA;
 import org.hzz.multi.annotations.MapperB;
+import org.hzz.multi.entity.Friend;
 import org.hzz.multi.mapper.MyFriendMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 /**
@@ -38,5 +40,12 @@ public class MutiDataSourceApplication {
         System.out.println(friendMapperOne);
         System.out.println(friendMapperTwo);
         System.out.println(friendMapperOne == friendMapperTwo);
+
+        List<Friend> friends1 = friendMapperOne.selectFriends();
+        List<Friend> friends2 = friendMapperTwo.selectFriends();
+
+        System.out.println(friends1);
+        System.out.println(friends2);
+
     }
 }

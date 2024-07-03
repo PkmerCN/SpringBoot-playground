@@ -1,6 +1,10 @@
 package org.hzz.multi.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import org.hzz.multi.entity.Friend;
+
+import java.util.List;
 
 /**
  * @author 胖卡
@@ -9,4 +13,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface MyFriendMapper {
+
+    @Select("select * from friend;")
+    List<Friend> selectFriends();
 }
