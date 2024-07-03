@@ -1,4 +1,4 @@
-package org.hzz.multi.mapper.a;
+package org.hzz.multi.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -7,6 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @version 1.0.0
  * @date 2024/7/2
  */
-//@Mapper
-public interface FriendMapper {
+@Mapper
+public interface MyFriendMapper {
 }

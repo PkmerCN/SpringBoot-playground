@@ -1,17 +1,13 @@
 package org.hzz.multi;
 
-import com.zaxxer.hikari.HikariDataSource;
-import org.apache.ibatis.annotations.Mapper;
-import org.hzz.multi.mapper.a.FriendMapper;
-import org.hzz.multi.services.UserService;
-import org.hzz.multi.services.UserServiceFactoryBean;
-import org.hzz.multi.test.MyInterface;
-import org.mybatis.spring.annotation.MapperScan;
+import org.hzz.multi.annotations.MapperA;
+import org.hzz.multi.annotations.MapperB;
+import org.hzz.multi.mapper.MyFriendMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import javax.sql.DataSource;
 import java.util.stream.Stream;
 
 /**
@@ -20,20 +16,27 @@ import java.util.stream.Stream;
  * @date 2024/7/1
  */
 @SpringBootApplication(scanBasePackages = "org.hzz.multi")
-@MapperScan(basePackages = "org.hzz.multi.mapper")
 public class MutiDataSourceApplication {
+
+
     public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(MutiDataSourceApplication.class);
 
-//        String[] beanNamesForType = applicationContext.getBeanNamesForType(DataSource.class);
-//        Stream.of(beanNamesForType)
-//                .forEach(System.out::println);
 
-        String[] beanNamesForFriendMapper = applicationContext.getBeanNamesForType(FriendMapper.class);
+        String[] beanNamesForFriendMapper = applicationContext.getBeanNamesForType(MyFriendMapper.class);
+        System.out.println(beanNamesForFriendMapper.length);
         Stream.of(beanNamesForFriendMapper)
                 .forEach(System.out::println);
 
-//        String[] beanNamesForType1 = applicationContext.getBeanNamesForType(MyInterface.class);
-//        System.out.println(beanNamesForType1.length);
+
+    }
+
+    @Autowired
+
+    public void setMyFriendMapper(@MapperA  MyFriendMapper friendMapperOne,
+                                  @MapperB  MyFriendMapper friendMapperTwo){
+        System.out.println(friendMapperOne);
+        System.out.println(friendMapperTwo);
+        System.out.println(friendMapperOne == friendMapperTwo);
     }
 }

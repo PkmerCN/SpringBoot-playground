@@ -28,10 +28,10 @@ public class MultiDataSourceConfig {
     @ConfigurationProperties(prefix = "spring.datasource.hikari-a")
     static class HikariDataSourceA extends HikariDataSource{
     }
-//
-//
-//    @Component("hikariDataSourceB")
-//    @ConfigurationProperties(prefix = "spring.datasource.hikari-b")
-//    static class HikariDataSourceB extends HikariDataSource{
-//    }
+
+
+    @Component("hikariDataSourceB")
+    @ConfigurationProperties(prefix = "spring.datasource.hikari-b")
+    static class HikariDataSourceB extends HikariDataSource{
+    }
 }
