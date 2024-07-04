@@ -12,6 +12,8 @@ import org.springframework.transaction.support.TransactionTemplate;
 import javax.sql.DataSource;
 
 /**
+ * 配置事务平台管理器
+ * 和TransactionTemplate编程式事务
  * @author 胖卡
  * @version 1.0.0
  * @date 2024/7/3
@@ -28,6 +30,10 @@ public class TransactionTemplateConfig {
             return dataSourceTransactionManager;
         }
 
+        /**
+         * @TransactionTemplateA是自定义注解
+         * 就是一个限定注入，类似@LoadBalance
+         */
         @Bean
         @TransactionTemplateA
         TransactionTemplate transactionTemplateOne(@Qualifier("dataSourceTransactionManagerA")
@@ -58,7 +64,5 @@ public class TransactionTemplateConfig {
             return transactionTemplate;
         }
     }
-
-
 
 }

@@ -2,6 +2,7 @@ package org.hzz.multi.config;
 
 import org.hzz.multi.annotations.MapperA;
 import org.hzz.multi.annotations.MapperB;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.AutowireCandidateQualifier;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
@@ -11,6 +12,11 @@ import org.springframework.beans.factory.support.GenericBeanDefinition;
 import java.lang.annotation.Annotation;
 
 /**
+ * 实现BeanName
+ * 这里主要是为了区分两个数据库
+ * 比如FriendMapper
+ * A: FriendMapper_one
+ * B: FriendMapper_two
  * @author 胖卡
  * @version 1.0.0
  * @date 2024/7/3
@@ -28,6 +34,12 @@ public abstract class CustomBeanNameGenerator implements BeanNameGenerator {
 
 
     abstract String subfix();
+
+    /**
+     * 处理beandefinition
+     * 加入限定注入的注解
+     * @param definition
+     */
     abstract void handleBeanDefinition(BeanDefinition definition);
 
     public static class MyBatisOneBeanNameGenerator extends CustomBeanNameGenerator {
@@ -37,6 +49,9 @@ public abstract class CustomBeanNameGenerator implements BeanNameGenerator {
             return "one";
         }
 
+        /**
+         * 加入限定注入@MapperA
+         */
         @Override
         void handleBeanDefinition(BeanDefinition definition) {
             MapperA mapperA =  new MapperA(){
@@ -58,8 +73,12 @@ public abstract class CustomBeanNameGenerator implements BeanNameGenerator {
             return "two";
         }
 
+        /**
+         * 加入限定注入@MapperB
+         */
         @Override
         void handleBeanDefinition(BeanDefinition definition) {
+
             MapperB mapperB =  new MapperB(){
                 @Override
                 public Class<? extends Annotation> annotationType() {

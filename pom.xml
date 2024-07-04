@@ -26,6 +26,7 @@
         <module>autowired-research</module>
         <module>multi-datasoure-transaction-research</module>
         <module>scan-bean-research</module>
+        <module>dynamic-datasource-research</module>
     </modules>
 
     <properties>

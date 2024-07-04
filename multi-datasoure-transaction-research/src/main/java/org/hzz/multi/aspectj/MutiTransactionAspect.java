@@ -70,14 +70,13 @@ public class MutiTransactionAspect{
      * 也不会生效
      */
 
-    @Transactional(transactionManager = "dataSourceTransactionManagerA")
-    protected <V> V inTransactionA(Callable<V> callable){
-        try {
-            return callable.call();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
+//    @Transactional(transactionManager = "dataSourceTransactionManagerA")
+//    protected <V> V inTransactionA(Callable<V> callable){
+//        try {
+//            return callable.call();
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
 }

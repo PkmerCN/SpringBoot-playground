@@ -13,6 +13,8 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 
 /**
+ * 配置Mybatis
+ * 主要是扫描接口时，指定SqlSessionFactory
  * @author 胖卡
  * @version 1.0.0
  * @date 2024/7/2
@@ -20,6 +22,10 @@ import javax.sql.DataSource;
 @Configuration
 public class MyBatisConfig {
 
+    /**
+     * 指定使用那个sqlSessionFactory
+     * 因为要用它来生成代理
+     */
     @Configuration
     @MapperScan(basePackages = "org.hzz.multi.mapper",annotationClass = Mapper.class,sqlSessionFactoryRef = "sqlSessionFactoryBeanA",nameGenerator = CustomBeanNameGenerator.MyBatisOneBeanNameGenerator.class)
     static class MyBatisConfigOne{

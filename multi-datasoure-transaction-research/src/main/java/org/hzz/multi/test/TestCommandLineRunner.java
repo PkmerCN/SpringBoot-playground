@@ -50,7 +50,9 @@ public class TestCommandLineRunner implements CommandLineRunner{
     }
 
 
-
+    /**
+     * 编程方式测试
+     */
     private void addFriendsWithTemplate(){
         transactionTemplateA.execute(status1 ->
            transactionTemplateB.execute(status2 -> {
@@ -65,13 +67,13 @@ public class TestCommandLineRunner implements CommandLineRunner{
         );
     }
 
-
+    /**
+     * 注册方式测试
+     */
     @MultiTransaction({"A","B"})
     public void addFriendWithAnnotion(){
         int r1 = myFriendMapperA.insert("cat");
         int r2 = myFriendMapperB.insert("cat");
 //        throw new RuntimeException("失败");
     }
-
-
 }

@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 /**
+ * 配置两个数据源
  * @author 胖卡
  * @version 1.0.0
  * @date 2024/7/1

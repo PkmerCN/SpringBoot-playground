@@ -20,17 +20,16 @@ import java.util.stream.Stream;
  * @date 2024/7/1
  */
 @SpringBootApplication(scanBasePackages = "org.hzz.multi")
-@EnableAspectJAutoProxy(exposeProxy = true)
 public class MutiDataSourceApplication {
 
 
     public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(MutiDataSourceApplication.class);
 //
-//        String[] beanNamesForFriendMapper = applicationContext.getBeanNamesForType(MyFriendMapper.class);
-//        System.out.println(beanNamesForFriendMapper.length);
-//        Stream.of(beanNamesForFriendMapper)
-//                .forEach(System.out::println);
+        String[] beanNamesForFriendMapper = applicationContext.getBeanNamesForType(MyFriendMapper.class);
+        System.out.println(beanNamesForFriendMapper.length);
+        Stream.of(beanNamesForFriendMapper)
+                .forEach(System.out::println);
 //
 //        System.out.println("========================================");
 //
