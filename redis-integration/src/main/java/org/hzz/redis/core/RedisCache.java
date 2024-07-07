@@ -98,9 +98,10 @@ public interface RedisCache {
      * 获得缓存的list对象
      *
      * @param key 缓存的键值
+     * @param clazz 转换类型
      * @return 缓存键值对应的数据
      */
-    <T> List<T> getList(final String key);
+    <T> List<T> getList(final String key,Class<T> clazz);
 
 
     /**
@@ -116,9 +117,10 @@ public interface RedisCache {
      * 获得缓存的set
      *
      * @param key 缓存键值
+     * @param clazz 要转换的类型
      * @return Set数据
      */
-    <T> Set<T> getCacheSet(final String key);
+    <T> Set<T> getSet(final String key,Class<T> clazz);
 
     /**
      * 缓存Map
@@ -132,9 +134,10 @@ public interface RedisCache {
      * 获得缓存的Map
      *
      * @param key 缓存键值
+     * @param clazz 要转换的类型
      * @return Map数据
      */
-    <T> Map<String, T> getMap(final String key);
+    <T> Map<String, T> getMap(final String key,Class<T> clazz);
 
     /**
      * 往Hash中存入数据
@@ -150,9 +153,10 @@ public interface RedisCache {
      *
      * @param key  Redis键
      * @param hKey Hash键
+     * @param clazz 要转换的类型
      * @return Hash中的对象
      */
-    <T> T getMapValue(final String key, final String hKey);
+    <T> T getMapValue(final String key, final String hKey,Class<T> clazz);
 
     /**
      * 删除Hash中的数据
@@ -167,9 +171,10 @@ public interface RedisCache {
      *
      * @param key   Redis键
      * @param hKeys Hash键集合
+     * @param clazz 要转换的类型
      * @return Hash对象集合
      */
-    <T> List<T> getMultiCacheMapValue(final String key, final Collection<String> hKeys);
+    <T> List<T> getMultiCacheMapValue(final String key, final Collection<String> hKeys,Class<T> clazz);
 
     /**
      * 获得缓存的基本对象列表

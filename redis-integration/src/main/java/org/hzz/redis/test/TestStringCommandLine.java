@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.Set;
-
 /**
  * @author 胖卡
  * @version 1.0.0
@@ -17,7 +15,7 @@ import java.util.Set;
 @SuppressWarnings(value = {"unchecked", "rawtypes"})
 @Component
 @Slf4j
-public class TestSetCommandLine implements CommandLineRunner {
+public class TestStringCommandLine implements CommandLineRunner {
 
     @Autowired
     private RedisCache redisCache;
@@ -28,13 +26,15 @@ public class TestSetCommandLine implements CommandLineRunner {
     }
 
     void serialize() {
-        Set<UserDto> set = UserDataProvider.getSet();
-        redisCache.setSet("user::set",set);
+       redisCache.setObject("string::test","Hello 广州");
+       redisCache.setObject("integer::test",123);
     }
 
     void deserialize(){
-        log.info("Set获取");
-        Set<UserDto> set = redisCache.getSet("user::set", UserDto.class);
-        System.out.println(set);
+        log.info("string测试");
+        String str = redisCache.getObject("string::test", String.class);
+        System.out.println(str);
+        Integer object = redisCache.getObject("integer::test", Integer.class);
+        System.out.println(object);
     }
 }

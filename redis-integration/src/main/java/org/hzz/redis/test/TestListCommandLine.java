@@ -33,7 +33,8 @@ public class TestListCommandLine implements CommandLineRunner {
     }
 
     void deserialize(){
-//        UserDto userDto = redisCache.getObject("user::pkmer",UserDto.class);
-//        System.out.println(userDto);
+        log.info("List获取");
+        List<UserDto> userDto = redisCache.getList("user::list",UserDto.class);
+        System.out.println(userDto);
     }
 }

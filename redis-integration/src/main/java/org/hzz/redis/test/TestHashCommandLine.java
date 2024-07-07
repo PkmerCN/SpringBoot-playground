@@ -33,7 +33,11 @@ public class TestHashCommandLine implements CommandLineRunner {
     }
 
     void deserialize(){
-//        UserDto userDto = redisCache.getObject("user::pkmer",UserDto.class);
-//        System.out.println(userDto);
+        log.info("获取Map");
+        Map<String, UserDto> map = redisCache.getMap("user::hash", UserDto.class);
+        System.out.println(map);
+
+        UserDto pkmer = redisCache.getMapValue("user::hash", "pkmer", UserDto.class);
+        System.out.println(pkmer);
     }
 }

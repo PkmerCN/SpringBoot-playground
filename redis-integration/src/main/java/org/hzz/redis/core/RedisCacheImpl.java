@@ -1,14 +1,16 @@
 package org.hzz.redis.core;
 
+
 import com.alibaba.fastjson2.JSONObject;
 import lombok.extern.slf4j.Slf4j;
+import org.hzz.redis.convert.JSONObjectUtil;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.*;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-
+import static org.hzz.redis.convert.JSONObjectUtil.*;
 /**
  * RedisTemplate封装
  * 使用FastJson
@@ -22,6 +24,10 @@ import java.util.concurrent.TimeUnit;
 public class RedisCacheImpl implements RedisCache{
     private final RedisTemplate redisTemplate;
 
+    /**
+     * 因为自动配置类会配置一个stringRedisTemplate
+     * @param redisTemplate
+     */
     public RedisCacheImpl(@Qualifier("redisTemplate") RedisTemplate redisTemplate){
         this.redisTemplate = redisTemplate;
     }
@@ -61,10 +67,7 @@ public class RedisCacheImpl implements RedisCache{
     public <T> T getObject(String key,Class<T> clazz) {
         log.info("根据 key = {} 获取",key);
         Object o = redisTemplate.opsForValue().get(key);
-        if(o instanceof JSONObject jsonObject){
-            return jsonObject.to(clazz);
-        }
-        throw new RuntimeException("fastjson转化失败");
+        return convert(o,clazz);
     }
     /**
      * {@inheritDoc}
@@ -110,11 +113,10 @@ public class RedisCacheImpl implements RedisCache{
      * {@inheritDoc}
      */
     @Override
-    public <T> List<T> getList(String key) {
+    public <T> List<T> getList(String key,Class<T> clazz) {
         log.info("获取List");
-        ListOperations<String,T> listOperations = redisTemplate.opsForList();
-        List<T> lists = listOperations.range(key, 0, -1);
-        return lists == null ? Collections.<T>emptyList() : lists;
+        List<Object> range = redisTemplate.opsForList().range(key, 0, -1);
+        return convertToList(range,clazz);
     }
     /**
      * {@inheritDoc}
@@ -131,10 +133,9 @@ public class RedisCacheImpl implements RedisCache{
      * {@inheritDoc}
      */
     @Override
-    public <T> Set<T> getCacheSet(String key) {
-        SetOperations<String,T> setOperations = redisTemplate.opsForSet();
-        Set<T> members = setOperations.members(key);
-        return members == null ? Collections.<T>emptySet() : members;
+    public <T> Set<T> getSet(String key,Class<T> clazz) {
+        Set<Object> members = redisTemplate.opsForSet().members(key);
+        return convertToSet(members,clazz);
     }
     /**
      * {@inheritDoc}
@@ -149,10 +150,9 @@ public class RedisCacheImpl implements RedisCache{
      * {@inheritDoc}
      */
     @Override
-    public <T> Map<String, T> getMap(String key) {
-        HashOperations<String,String,T> hashOperations = redisTemplate.opsForHash();
-        Map<String, T> entries = hashOperations.entries(key);
-        return entries == null ? Collections.<String,T>emptyMap() : entries;
+    public <T> Map<String, T> getMap(String key,Class<T> clazz) {
+        Map<String, Object> entries = redisTemplate.opsForHash().entries(key);
+        return convertToMap(entries,clazz);
     }
     /**
      * {@inheritDoc}
@@ -167,9 +167,9 @@ public class RedisCacheImpl implements RedisCache{
      * {@inheritDoc}
      */
     @Override
-    public <T> T getMapValue(String key, String hKey) {
-        HashOperations<String,String,T> hashOperations = redisTemplate.opsForHash();
-        return hashOperations.get(key, hKey);
+    public <T> T getMapValue(String key, String hKey,Class<T> clazz) {
+        Object o = redisTemplate.opsForHash().get(key, hKey);
+        return convert(o,clazz);
     }
     /**
      * {@inheritDoc}
@@ -183,10 +183,10 @@ public class RedisCacheImpl implements RedisCache{
      * {@inheritDoc}
      */
     @Override
-    public <T> List<T> getMultiCacheMapValue(String key, Collection<String> hKeys) {
-        HashOperations<String,String,T> hashOperations = redisTemplate.opsForHash();
-        List<T> ts = hashOperations.multiGet(key, hKeys);
-        return ts == null ? Collections.<T>emptyList() : ts;
+    public <T> List<T> getMultiCacheMapValue(String key, Collection<String> hKeys,Class<T> clazz) {
+
+        List<Object> ts = redisTemplate.opsForHash().multiGet(key, hKeys);
+        return convertToList(ts,clazz);
     }
     /**
      * {@inheritDoc}
