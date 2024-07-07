@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>global-exception-handler</artifactId>
-
+    <description>全局异常处理</description>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>

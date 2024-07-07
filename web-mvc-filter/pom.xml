@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>web-mvc-filter</artifactId>
+    <description>过滤器</description>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
