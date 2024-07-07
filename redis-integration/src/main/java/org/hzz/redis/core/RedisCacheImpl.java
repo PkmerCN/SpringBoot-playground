@@ -26,7 +26,7 @@ public class RedisCacheImpl implements RedisCache{
 
     /**
      * 因为自动配置类会配置一个stringRedisTemplate
-     * @param redisTemplate
+     * @param redisTemplate 模板
      */
     public RedisCacheImpl(@Qualifier("redisTemplate") RedisTemplate redisTemplate){
         this.redisTemplate = redisTemplate;
@@ -75,28 +75,29 @@ public class RedisCacheImpl implements RedisCache{
     @Override
     public boolean deleteObject(String key) {
         log.info("删除缓存 key = {}",key);
-        return redisTemplate.delete(key);
+        return Boolean.TRUE.equals(redisTemplate.delete(key));
     }
     /**
      * {@inheritDoc}
      */
     @Override
     public long deleteObject(Collection<?> keys) {
-        return redisTemplate.delete(keys);
+        Long delete = redisTemplate.delete(keys);
+        return delete == null ? 0L: delete;
     }
     /**
      * {@inheritDoc}
      */
     @Override
     public boolean expire(String key, long timeout) {
-        return redisTemplate.expire(key,timeout,TimeUnit.SECONDS);
+        return Boolean.TRUE.equals(redisTemplate.expire(key, timeout, TimeUnit.SECONDS));
     }
     /**
      * {@inheritDoc}
      */
     @Override
     public boolean expire(String key, long timeout, TimeUnit unit) {
-        return redisTemplate.expire(key,timeout,unit);
+        return Boolean.TRUE.equals(redisTemplate.expire(key, timeout, unit));
     }
     /**
      * {@inheritDoc}

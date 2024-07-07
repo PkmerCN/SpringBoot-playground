@@ -5,6 +5,7 @@ import org.hzz.redis.core.RedisCache;
 import org.hzz.redis.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
@@ -17,6 +18,7 @@ import java.util.Map;
 @SuppressWarnings(value = {"unchecked", "rawtypes"})
 @Component
 @Slf4j
+@Order(5)
 public class TestHashCommandLine implements CommandLineRunner {
 
     @Autowired
