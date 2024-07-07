@@ -17,6 +17,7 @@ public class JSONObjectUtil {
         if(o instanceof JSONObject jsonObject){
             return jsonObject.to(clazz);
         }
+        // Integer,String,直接转换
         return (T)o;
     }
 
