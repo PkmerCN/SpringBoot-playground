@@ -30,15 +30,25 @@ public interface RedisCache {
      * @param timeout  时间
      * @param timeUnit 时间颗粒度
      */
-    <T> void setObject(final String key, final T value, final Integer timeout, final TimeUnit timeUnit);
+    <T> void setObject(final String key, final T value, final Long timeout, final TimeUnit timeUnit);
+
+    /**
+     * 缓存基本的对象，Integer、String、实体类等
+     *
+     * @param key      缓存的键值
+     * @param value    缓存的值
+     * @param timeout  时间(默认秒)
+     */
+    <T> void setObject(final String key, final T value, final Long timeout);
 
     /**
      * 获得缓存的基本对象。
      *
      * @param key 缓存键值
+     * @param clazz 要转换的类型
      * @return 缓存键值对应的数据
      */
-    <T> T getObject(final String key);
+    <T> T getObject(final String key,Class<T> clazz);
 
     /**
      * 删除单个对象
@@ -50,16 +60,16 @@ public interface RedisCache {
     /**
      * 删除集合对象
      *
-     * @param collection 多个对象
+     * @param keys 多个对象
      * @return 删除的对象数目
      */
-    long deleteObject(final Collection<?> collection);
+    long deleteObject(final Collection<?> keys);
 
     /**
      * 设置有效时间
      *
      * @param key     Redis键
-     * @param timeout 超时时间
+     * @param timeout 超时时间(默认为秒)
      * @return true=设置成功；false=设置失败
      */
     boolean expire(final String key, final long timeout);
@@ -150,7 +160,7 @@ public interface RedisCache {
      * @param key Redis键
      * @param hkey Hash键
      */
-    void delMapValue(final String key, final String hkey);
+    Long delMapValue(final String key, final String hkey);
 
     /**
      * 获取多个Hash中的数据
@@ -159,7 +169,7 @@ public interface RedisCache {
      * @param hKeys Hash键集合
      * @return Hash对象集合
      */
-    <T> List<T> getMultiCacheMapValue(final String key, final Collection<Object> hKeys);
+    <T> List<T> getMultiCacheMapValue(final String key, final Collection<String> hKeys);
 
     /**
      * 获得缓存的基本对象列表

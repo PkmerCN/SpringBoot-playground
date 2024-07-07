@@ -8,10 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-
-import java.nio.charset.StandardCharsets;
 
 /**
  * @author 胖卡
@@ -23,8 +20,8 @@ import java.nio.charset.StandardCharsets;
 public class RedisConfig {
 
     @Bean
-    RedisTemplate<Object,Object> redisTemplate(RedisConnectionFactory connectionFactory){
-        RedisTemplate<Object,Object> redisTemplate = new RedisTemplate<>();
+    RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory connectionFactory){
+        RedisTemplate<Object, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(connectionFactory);
         // 配置fastjson
         FastJsonRedisSerializer<Object> serializer = new FastJsonRedisSerializer<>(Object.class);
