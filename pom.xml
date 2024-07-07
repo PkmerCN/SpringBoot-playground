@@ -27,6 +27,7 @@
         <module>multi-datasoure-transaction-research</module>
         <module>scan-bean-research</module>
         <module>dynamic-datasource-research</module>
+        <module>redis-integration</module>
     </modules>
 
     <properties>
@@ -34,6 +35,7 @@
         <spring.boot.version>3.3.0</spring.boot.version>
         <springdoc.version>2.5.0</springdoc.version>
         <lombok.version>1.18.24</lombok.version>
+        <fastjson2.version>2.0.51</fastjson2.version>
         <mybatis.spring.boot.version>3.0.3</mybatis.spring.boot.version>
         <mysql.version>8.0.28</mysql.version>
         <jjwt.version>0.12.5</jjwt.version>
@@ -92,6 +94,12 @@
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis.spring.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2-extension-spring6</artifactId>
+                <version>${fastjson2.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
