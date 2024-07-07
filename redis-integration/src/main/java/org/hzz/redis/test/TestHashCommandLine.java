@@ -17,7 +17,7 @@ import java.util.Map;
  * @date 2024/7/7
  */
 @SuppressWarnings(value = {"unchecked", "rawtypes"})
-//@Component
+@Component
 @Slf4j
 @Order(5)
 public class TestHashCommandLine implements CommandLineRunner {
