@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 /**
  * JSONObject转换
+ * 实现类类型自动支持，
  * @author 胖卡
  * @version 1.0.0
  * @date 2024/7/7
@@ -17,7 +18,7 @@ public class JSONObjectUtil {
         if(o instanceof JSONObject jsonObject){
             return jsonObject.to(clazz);
         }
-        // Integer,String,直接转换
+        // Integer,String,或者fastjson2已经做了类型转换，那么直接转换
         return (T)o;
     }
 

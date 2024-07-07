@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
  * @version 1.0.0
  * @date 2024/7/7
  */
-@Component
+//@Component
 @Order(6)
 @Slf4j
 public class CacheTestCommandLine implements CommandLineRunner {
