@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @Data
 @Accessors(chain = true)
 public class UserDto {
+    Long id;
     String name;
     Integer days;
     Boolean javaDeveloper;

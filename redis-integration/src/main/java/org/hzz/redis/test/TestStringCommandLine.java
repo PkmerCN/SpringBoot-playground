@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
  * @date 2024/7/7
  */
 @SuppressWarnings(value = {"unchecked", "rawtypes"})
-@Component
+//@Component
 @Slf4j
 @Order(2)
 public class TestStringCommandLine implements CommandLineRunner {

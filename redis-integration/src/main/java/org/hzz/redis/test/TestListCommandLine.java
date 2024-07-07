@@ -17,7 +17,7 @@ import java.util.List;
  * @date 2024/7/7
  */
 @SuppressWarnings(value = {"unchecked", "rawtypes"})
-@Component
+//@Component
 @Slf4j
 @Order(3)
 public class TestListCommandLine implements CommandLineRunner {
