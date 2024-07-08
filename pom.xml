@@ -28,6 +28,7 @@
         <module>scan-bean-research</module>
         <module>dynamic-datasource-research</module>
         <module>redis-integration</module>
+        <module>lifecycle-spring-bean-event</module>
     </modules>
 
     <properties>
@@ -67,7 +68,7 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.24</version>
+                <version>${lombok.version}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>

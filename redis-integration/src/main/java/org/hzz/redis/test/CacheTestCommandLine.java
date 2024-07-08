@@ -39,7 +39,7 @@ public class CacheTestCommandLine implements CommandLineRunner {
         UserDto user = self.getUser(1L);
         System.out.println(user);
         self.update(user);
-        self.deleteItemById(1L);
+//        self.deleteItemById(1L);
     }
 
     /**

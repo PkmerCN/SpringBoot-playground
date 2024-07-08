@@ -1,0 +1,7 @@
+# Application Listeners
+org.springframework.context.ApplicationListener=\
+  org.hzz.lifecycle.event.ApplicationPreparedEventListener
+
+org.hzz.lifecycle.factory.MyFactory = \
+  org.hzz.lifecycle.factory.redis.RedisConnectionDetailsFactory,\
+  org.hzz.lifecycle.factory.mysql.MySqlConnectionDetailsFactory
