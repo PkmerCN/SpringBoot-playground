@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 /**
@@ -25,6 +26,10 @@ public class UserService implements CommandLineRunner, InitializingBean,
 
     @Autowired
     private ApplicationContext context;
+
+    @Autowired
+    @Lazy
+    private UserService service;
 
     static {
         log.info("UserService Static");

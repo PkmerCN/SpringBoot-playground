@@ -20,8 +20,11 @@ public class LifeCycleApplication {
     public static void main(String[] args) {
         log.info("开始");
         SpringApplication springApplication = new SpringApplication(LifeCycleApplication.class);
-        // 使用 Spring Boot 内置的事件监听器
-//        springApplication.addListeners(new ApplicationPreparedEventListener());
+        /**
+         * 使用 Spring Boot 内置的事件监听器
+         * 目前我使用了spring.factories
+         */
+        // springApplication.addListeners(new ApplicationPreparedEventListener());
 
         ConfigurableApplicationContext applicationContext = springApplication.run(args);
         String[] beanNamesForConnectionDetails = applicationContext.getBeanNamesForType(ConnectionDetails.class);

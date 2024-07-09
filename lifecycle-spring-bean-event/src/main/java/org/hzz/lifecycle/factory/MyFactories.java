@@ -23,10 +23,7 @@ public class MyFactories {
         factories = loader.load(MyFactory.class);
     }
 
-
     public List<MyFactory> getFactories(){
         return this.factories;
     }
-
-
 }
