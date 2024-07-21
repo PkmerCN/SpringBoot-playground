@@ -29,6 +29,8 @@
         <module>dynamic-datasource-research</module>
         <module>redis-integration</module>
         <module>lifecycle-spring-bean-event</module>
+        <module>batch-update-research</module>
+        <module>playground-mbg</module>
     </modules>
 
     <properties>
@@ -38,6 +40,7 @@
         <lombok.version>1.18.24</lombok.version>
         <fastjson2.version>2.0.51</fastjson2.version>
         <mybatis.spring.boot.version>3.0.3</mybatis.spring.boot.version>
+        <mybatis.dynamic.sql.version>1.5.2</mybatis.dynamic.sql.version>
         <mysql.version>8.0.28</mysql.version>
         <jjwt.version>0.12.5</jjwt.version>
         <junit.version>5.9.3</junit.version>
@@ -96,6 +99,13 @@
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis.spring.boot.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.dynamic-sql</groupId>
+                <artifactId>mybatis-dynamic-sql</artifactId>
+                <version>${mybatis.dynamic.sql.version}</version>
+            </dependency>
+
 
             <dependency>
                 <groupId>com.alibaba.fastjson2</groupId>

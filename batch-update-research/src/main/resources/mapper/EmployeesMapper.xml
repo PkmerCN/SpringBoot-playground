@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.hzz.sql.mapper.EmployeesMapper">
+    <select id="count" resultType="int">
+        select count(1) from employees
+    </select>
+
+    <update id="updateEmployeeSalariesByWhenCase">
+        UPDATE employees
+        <set>
+            salary = CASE
+            <foreach collection="list" item="employee" separator=" ">
+                WHEN employee_id = #{employee.employeeId} THEN #{employee.salary}
+            </foreach>
+            ELSE salary
+            END
+        </set>
+        WHERE employee_id IN
+        <foreach collection="list" item="employee" open="(" separator="," close=")">
+            #{employee.employeeId}
+        </foreach>
+    </update>
+</mapper>

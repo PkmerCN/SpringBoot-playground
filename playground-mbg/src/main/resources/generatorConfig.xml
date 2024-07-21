@@ -1,0 +1,25 @@
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <context id="MySQLTables" targetRuntime="MyBatis3DynamicSql">
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3308/test_forlearn?autoreconnect=true&amp;allowPublicKeyRetrieval=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC"
+                        userId="root"
+                        password="Root.123456">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="useJSR310Types" value="true" />
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="org.hzz.entity" targetProject="src/main/java" />
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.hzz.mapper" targetProject="src/main/java"/>
+
+        <table tableName="employees"/>
+    </context>
+
+</generatorConfiguration>
