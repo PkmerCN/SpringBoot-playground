@@ -22,4 +22,29 @@
             #{employee.employeeId}
         </foreach>
     </update>
+    <update id="updateEmployeeSalariesByForIterator">
+        <foreach collection="list" item="employee" separator=";">
+            UPDATE employees
+            SET salary = #{employee.salary}
+            WHERE employee_id = #{employee.employeeId}
+        </foreach>
+    </update>
+
+    <insert id="updateEmployeeSalariesByInsertUpdate">
+        INSERT INTO employees (employee_id, salary)
+        VALUES
+        <foreach collection="list" item="employee" separator=",">
+            (#{employee.employeeId}, #{employee.salary})
+        </foreach>
+        ON DUPLICATE KEY UPDATE
+        salary = VALUES(salary)
+    </insert>
+
+    <insert id="replaceEmployees">
+        REPLACE INTO employees (employee_id, salary)
+        VALUES
+        <foreach collection="list" item="employee" separator=",">
+            (#{employee.employeeId}, #{employee.salary})
+        </foreach>
+    </insert>
 </mapper>
