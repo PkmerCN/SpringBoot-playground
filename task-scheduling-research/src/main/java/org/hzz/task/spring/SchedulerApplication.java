@@ -29,8 +29,9 @@ public class SchedulerApplication {
 
 //    @Scheduled(fixedDelay = 3, timeUnit = TimeUnit.SECONDS)
     @Scheduled(cron = "*/3 * * * * *")
-    public void helloWorld(){
+    public void helloWorld() throws InterruptedException {
         log.info("No.{}",count.getAndIncrement());
+        TimeUnit.SECONDS.sleep(5);
         log.info("是：{}",Thread.currentThread().isDaemon() ? "守护线程":"用户线程");
 
     }
