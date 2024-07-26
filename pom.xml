@@ -31,6 +31,7 @@
         <module>lifecycle-spring-bean-event</module>
         <module>batch-update-research</module>
         <module>playground-mbg</module>
+        <module>task-scheduling-research</module>
     </modules>
 
     <properties>
