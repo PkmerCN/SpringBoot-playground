@@ -5,11 +5,18 @@
 
     <context id="MySQLTables" targetRuntime="MyBatis3DynamicSql">
 
+<!--        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"-->
+<!--                        connectionURL="jdbc:mysql://localhost:3308/test_forlearn?autoreconnect=true&amp;allowPublicKeyRetrieval=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC"-->
+<!--                        userId="root"-->
+<!--                        password="Root.123456">-->
+<!--        </jdbcConnection>-->
+
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3308/test_forlearn?autoreconnect=true&amp;allowPublicKeyRetrieval=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC"
+                        connectionURL="jdbc:mysql://localhost:3308/videos_online?autoreconnect=true&amp;allowPublicKeyRetrieval=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC"
                         userId="root"
                         password="Root.123456">
         </jdbcConnection>
+
 
         <javaTypeResolver>
             <property name="useJSR310Types" value="true" />
@@ -19,7 +26,10 @@
         <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
         <javaClientGenerator type="XMLMAPPER" targetPackage="org.hzz.mapper" targetProject="src/main/java"/>
 
-        <table tableName="employees"/>
+<!--        <table tableName="employees"/>-->
+        <table tableName="liked_record">
+            <columnOverride column="biz_type" javaType="org.hzz.remark.types.BizType"/>
+        </table>
     </context>
 
 </generatorConfiguration>
