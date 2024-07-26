@@ -1,6 +1,7 @@
-package org.hzz.task;
+package org.hzz.task.pool;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.concurrent.ConcurrentTaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.concurrent.ThreadPoolExecutor;
@@ -13,12 +14,13 @@ import java.util.concurrent.TimeUnit;
  */
 @Slf4j
 public class TaskExecutorMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
         taskExecutor.setCorePoolSize(2); // 设置核心线程数
         taskExecutor.setMaxPoolSize(2); // 设置最大线程数
         taskExecutor.setQueueCapacity(2); // 设置队列容量
         taskExecutor.setThreadNamePrefix("pkmer-"); // 设置线程名前缀
+        taskExecutor.setWaitForTasksToCompleteOnShutdown(true); // 设置所有任务完成前关闭
         // 设置拒绝策略
         taskExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         taskExecutor.initialize(); // 初始化线程池
@@ -34,7 +36,6 @@ public class TaskExecutorMain {
               }
           }) ;
         }
-
         taskExecutor.shutdown();
     }
 }
