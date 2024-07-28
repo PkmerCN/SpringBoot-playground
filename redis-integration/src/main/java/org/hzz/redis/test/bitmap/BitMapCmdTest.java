@@ -19,7 +19,7 @@ import java.util.List;
 public class BitMapCmdTest implements CommandLineRunner {
 
     @Setter(onMethod_ = @Autowired)
-    private StringRedisTemplate redisTemplate;
+    private RedisTemplate<String,String> redisTemplate;
 
     @Override
     public void run(String... args) throws Exception {
