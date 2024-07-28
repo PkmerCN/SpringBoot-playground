@@ -1,4 +1,4 @@
-package org.hzz.redis.test;
+package org.hzz.redis.test.basic;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -6,7 +6,6 @@ import org.hzz.redis.core.RedisCache;
 import org.hzz.redis.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.cache.Cache;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;

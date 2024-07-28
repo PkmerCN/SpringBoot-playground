@@ -1,4 +1,4 @@
-package org.hzz.redis.test;
+package org.hzz.redis.test.basic;
 
 import lombok.extern.slf4j.Slf4j;
 import org.hzz.redis.core.RedisCache;

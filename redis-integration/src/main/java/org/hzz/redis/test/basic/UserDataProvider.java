@@ -1,4 +1,4 @@
-package org.hzz.redis.test;
+package org.hzz.redis.test.basic;
 
 import org.hzz.redis.dto.AddressDto;
 import org.hzz.redis.dto.UserDto;

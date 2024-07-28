@@ -1,4 +1,4 @@
-package org.hzz.redis.test;
+package org.hzz.redis.test.basic;
 
 import lombok.extern.slf4j.Slf4j;
 import org.hzz.redis.core.RedisCache;
@@ -8,8 +8,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import java.util.Set;
+
 /**
- * 字符串与数字测试
+ * Set测试
  * @author 胖卡
  * @version 1.0.0
  * @date 2024/7/7
@@ -17,8 +19,8 @@ import org.springframework.stereotype.Component;
 @SuppressWarnings(value = {"unchecked", "rawtypes"})
 @Component
 @Slf4j
-@Order(2)
-public class TestStringCommandLine implements CommandLineRunner {
+@Order(4)
+public class TestSetCommandLine implements CommandLineRunner {
 
     @Autowired
     private RedisCache redisCache;
@@ -29,15 +31,13 @@ public class TestStringCommandLine implements CommandLineRunner {
     }
 
     void serialize() {
-       redisCache.setObject("string::test","Hello 广州");
-       redisCache.setObject("integer::test",123);
+        Set<UserDto> set = UserDataProvider.getSet();
+        redisCache.setSet("user::set",set);
     }
 
     void deserialize(){
-        log.info("string测试");
-        String str = redisCache.getObject("string::test", String.class);
-        System.out.println(str);
-        Integer object = redisCache.getObject("integer::test", Integer.class);
-        System.out.println(object);
+        log.info("Set获取");
+        Set<UserDto> set = redisCache.getSet("user::set", UserDto.class);
+        System.out.println(set);
     }
 }
