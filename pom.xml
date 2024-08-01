@@ -34,6 +34,7 @@
         <module>task-scheduling-research</module>
         <module>quartz-springboot-research</module>
         <module>xxljob-research</module>
+        <module>test-app-scheduler-xxljob</module>
     </modules>
 
     <properties>
