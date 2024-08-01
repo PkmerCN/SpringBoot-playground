@@ -33,6 +33,7 @@
         <module>playground-mbg</module>
         <module>task-scheduling-research</module>
         <module>quartz-springboot-research</module>
+        <module>xxljob-research</module>
     </modules>
 
     <properties>
