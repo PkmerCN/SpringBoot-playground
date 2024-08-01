@@ -1,5 +1,6 @@
 package org.hzz.xxljob;
 
+import com.xxl.job.core.handler.annotation.XxlJob;
 import org.hzz.xxljob.mapper.XxlJobMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

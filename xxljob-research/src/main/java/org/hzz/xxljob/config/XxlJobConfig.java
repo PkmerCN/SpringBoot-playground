@@ -12,8 +12,8 @@ import org.springframework.context.annotation.Configuration;
  * @version 1.0.0
  * @date 2024/8/1
  */
-@Configuration
 @Slf4j
+@Configuration
 @EnableConfigurationProperties(XxlJobProps.class)
 public class XxlJobConfig {
     @Bean

@@ -1,6 +1,6 @@
 spring:
   application:
-    name: xxljob_research
+    name: xxljob-research
   datasource:
     url: jdbc:mysql://localhost:3308/xxl_job?autoreconnect=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: root
@@ -8,7 +8,9 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 xxl:
   job:
+#    access-token: default_token
+    access-token: pkmer_token
     admin-addresses: http://localhost:8991/xxl-job-admin
-    exectutor:
+    executor:
       appname: ${spring.application.name}
       log-path: job/${spring.application.name}
