@@ -1,4 +1,10 @@
 spring:
   application:
     name: test-app-scheduler-xxljob
-
+xxl:
+  job:
+    access-token: pkmer_token
+    admin-addresses: http://localhost:8991/xxl-job-admin
+    executor:
+      appname: ${spring.application.name}
+      log-path: job/${spring.application.name}

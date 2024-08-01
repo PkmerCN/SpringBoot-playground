@@ -19,9 +19,7 @@ public class TestXxlJobApplication {
 
         String[] beanNamesXxlJobAutoConfig = appContext.getBeanNamesForType(XxlJobAutoConfig.class);
         String[] beanNamesForXxlJobProps = appContext.getBeanNamesForType(XxlJobProps.class);
-        System.out.println(beanNamesXxlJobAutoConfig.length);
-        System.out.println(beanNamesForXxlJobProps.length);
-//        XxlJobSpringExecutor
-
+        System.out.println(beanNamesXxlJobAutoConfig.length); // 1
+        System.out.println(beanNamesForXxlJobProps.length);   // 1
     }
 }
