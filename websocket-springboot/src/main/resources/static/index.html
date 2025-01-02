@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello WebSocket</title>
+</head>
+<body>
+<h1>Hello WebSocket!</h1>
+<input type="text" id="name" placeholder="Enter your name"/>
+<button onclick="sendName()">Send</button>
+<div id="greetings"></div>
+
+<script>
+    var socket = new WebSocket("ws://localhost:8080/hello");
+    socket.onmessage = function(event) {
+        showGreeting(event.data);
+    };
+
+    function sendName() {
+        var name = document.getElementById('name').value;
+        socket.send(name);
+    }
+
+    function showGreeting(message) {
+        var greetings = document.getElementById('greetings');
+        greetings.innerHTML += "<div>" + message + "</div>";
+    }
+</script>
+</body>
+</html>

@@ -35,6 +35,8 @@
         <module>quartz-springboot-research</module>
         <module>xxljob-research</module>
         <module>test-app-scheduler-xxljob</module>
+        <module>websocket-springboot</module>
+        <module>ddd-command-type</module>
     </modules>
 
     <properties>

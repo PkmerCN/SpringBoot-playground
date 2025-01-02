@@ -1,8 +1,8 @@
 package org.hzz.testxxljob;
 
 //import com.xxl.job.core.executor.impl.XxlJobSpringExecutor;
-import org.hzz.scheduler.autoconfig.XxlJobAutoConfig;
-import org.hzz.scheduler.xxljob.XxlJobProps;
+//import org.hzz.scheduler.autoconfig.XxlJobAutoConfig;
+//import org.hzz.scheduler.xxljob.XxlJobProps;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -16,10 +16,10 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class TestXxlJobApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext appContext = SpringApplication.run(TestXxlJobApplication.class, args);
-
-        String[] beanNamesXxlJobAutoConfig = appContext.getBeanNamesForType(XxlJobAutoConfig.class);
-        String[] beanNamesForXxlJobProps = appContext.getBeanNamesForType(XxlJobProps.class);
-        System.out.println(beanNamesXxlJobAutoConfig.length); // 1
-        System.out.println(beanNamesForXxlJobProps.length);   // 1
+//
+//        String[] beanNamesXxlJobAutoConfig = appContext.getBeanNamesForType(XxlJobAutoConfig.class);
+//        String[] beanNamesForXxlJobProps = appContext.getBeanNamesForType(XxlJobProps.class);
+//        System.out.println(beanNamesXxlJobAutoConfig.length); // 1
+//        System.out.println(beanNamesForXxlJobProps.length);   // 1
     }
 }
